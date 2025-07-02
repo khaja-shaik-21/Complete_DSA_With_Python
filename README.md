@@ -1,28 +1,30 @@
-Data Structures and Algorithms (DSA) – Complete Code Repository
-This repository is a comprehensive collection of Data Structures and Algorithms (DSA) implementations in Python, organized topic-wise from foundational to advanced concepts. Each topic folder contains well-structured code with clearly commented logic and includes time and space complexity analysis for each operation.
+# Data Structures and Algorithms (DSA) – Complete Code Repository
 
-📚 Topics Covered:
-Arrays & Strings: Searching, sorting, sliding window, prefix sum, two pointers, etc.
+This repository is a comprehensive collection of Data Structures and Algorithms (DSA) implementations in Python, organized topic-wise from foundational to advanced concepts. Each topic folder contains well-structured code with clearly commented logic and includes Time and Space complexity analysis for each operation.
 
-Linked Lists: Singly, doubly, circular, operations, and problems.
+## 📚 Topics Covered:
+- **Arrays & Strings**: Searching, sorting, sliding window, prefix sum, two pointers, etc.
 
-Stacks & Queues: Implementation using arrays and linked lists, including variations like circular queue, deque, etc.
+- **Linked Lists**: Singly, doubly, circular, operations, and problems.
 
-Trees: Binary Trees, Binary Search Trees, AVL Trees, Tree traversals (inorder, preorder, postorder, level order), and tree operations.
+- **Stacks & Queues**: Implementation using arrays and linked lists, including variations like circular queue, deque, etc.
 
-Graphs: BFS, DFS, Dijkstra’s Algorithm, cycle detection, topological sort, and graph representations.
+- **Trees**: Binary Trees, Binary Search Trees, AVL Trees, Tree traversals (inorder, preorder, postorder, level order), and tree operations.
 
-Recursion & Backtracking: Classic recursive problems and constraint-based solutions.
+- **Graphs**: BFS, DFS, Dijkstra’s Algorithm, cycle detection, topological sort, and graph representations.
 
-Dynamic Programming: Memoization and tabulation-based problems with optimized space/time.
+- **Recursion & Backtracking**: Classic recursive problems and constraint-based solutions.
 
-Greedy Algorithms: Interval scheduling, activity selection, Huffman coding, etc.
+- **Dynamic Programming**: Memoization and tabulation-based problems with optimized space/time.
 
-Sorting & Searching Algorithms: Bubble, merge, quicksort, binary search, etc.
+- **Greedy Algorithms**: Interval scheduling, activity selection, Huffman coding, etc.
 
-Other Algorithms: Sliding window, prefix sum, union-find, two pointers, etc.
+- **Sorting & Searching Algorithms**: Bubble, merge, quicksort, binary search, etc.
 
-🔍 Highlights:
+- **Other Algorithms**: Sliding window, prefix sum, union-find, two pointers, etc.
+
+## Highlights:
+
 ✅ Clean and modular Python code
 
 ✅ Time and Space Complexity included in each file
