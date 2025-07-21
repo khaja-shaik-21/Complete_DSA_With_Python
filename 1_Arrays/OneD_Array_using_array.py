@@ -113,9 +113,8 @@ def menu():
         else:
             print("Invalid choice. Please select a valid option.")
 
-
-# Start the menu
-menu()
+if __name__ == "__main__":
+    menu()
 
 
 ############# Time & Space Complexity Table: 1D Array using Python array Module ############
