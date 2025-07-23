@@ -25,6 +25,7 @@ def heapSort(customList):
     customList.reverse()
     return customList
 
+
 Data = [3, 2, 8, 1, 5]
 
 print(f"Before Sorting : {Data}")

@@ -18,7 +18,6 @@ modASCII("ABC", 24)# ---> 6 Hash value
 
 
 
-
 def simple_hash(key):
     return len(key) % 5 
 
