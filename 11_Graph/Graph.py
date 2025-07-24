@@ -1,3 +1,5 @@
+# Graph using Adjacency List
+
 class Graph:
     def __init__(self):
         self.adjacency_list = {}
@@ -44,6 +46,36 @@ class Graph:
             return True
         return False
 
+    # Graph Traversal
+    def bfs(self, vertex):
+        visited = set()
+        visited.add(vertex)
+        queue = [vertex]
+
+        while queue:
+            curr_vertex = queue.pop(0)
+            print(curr_vertex, end=" ")
+
+            for adj_vertex in self.adjacency_list[curr_vertex]:
+                if adj_vertex not in visited:
+                    visited.add(adj_vertex)
+                    queue.append(adj_vertex)
+    
+    # Graph Traversal
+    def dfs(self, vertex):
+        visited = set()
+        stack = [vertex]
+
+        while stack:
+            curr_vertex = stack.pop()
+            if curr_vertex not in visited:
+                print(curr_vertex, end=" ")
+                visited.add(curr_vertex)
+
+                for adj_vertex in self.adjacency_list[curr_vertex]:
+                    if adj_vertex not in visited:
+                        stack.append(adj_vertex)
+            
     def printGraph(self):
         for vertex in self.adjacency_list:
             print(vertex, ":", self.adjacency_list[vertex])
@@ -59,7 +91,9 @@ if __name__ == "__main__":
         print("3. Display Graph")
         print("4. Remove Edge")
         print("5. Remove Vertex")
-        print("6. Exit")
+        print("6. Graph Traversal Using BFS")
+        print("7. Graph Traversal Using DFS")
+        print("8. Exit")
         choice = input("Enter your choice: ")
 
         if choice == '1':
@@ -94,8 +128,35 @@ if __name__ == "__main__":
                 print(f"Vertex '{v}' does not exist.")
 
         elif choice == '6':
+            if not g.adjacency_list:
+                print("Graph is empty. Add vertices first.")
+            else:
+                start = input("Enter start vertex for BFS: ")
+                g.dfs(start)
+        
+        elif choice == '7':
+            if not g.adjacency_list:
+                print("Graph is empty. Add vertices first.")
+            else:
+                start = input("Enter start vertex for DFS: ")
+                g.dfs(start)
+        
+        elif choice == '8':
             print("Exiting program.")
             break
 
         else:
             print("Invalid choice. Please try again.")
+
+
+#############   Time & Space Complexity Table: Undirected Graph (Adjacency List)   #############
+
+# | Operation              | Time Complexity   | Space Complexity   | Notes                                                   |
+# |------------------------|-------------------|--------------------|---------------------------------------------------------|
+# | addVertex(vertex)      | O(1)              | O(1)               | Constant time to check and add vertex if not present    |
+# | addEdge(v1, v2)        | O(1) avg          | O(1) per edge      | Appends edge to both vertex lists (undirected)          |
+# | removeEdge(v1, v2)     | O(E/V) worst      | O(1)               | List removal takes linear time per vertex's edge list   |
+# | removeVertex(v)        | O(E)              | O(1)               | Remove vertex from all adjacency lists                  |
+# | printGraph()           | O(V + E)          | O(1)               | Iterates over all vertices and their edges              |
+# | BFS traversal	       | O(V + E)	       | O(V)	            | Uses queue and visited set                              |
+# | DFS traversal          | O(V + E)          | O(V)               | Uses Stack and visited set                              |
