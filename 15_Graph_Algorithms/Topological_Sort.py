@@ -28,18 +28,6 @@ class Graph:
         
         print(stack)
 
-customgraph = Graph(8)
-
-customgraph.addEdge("a", "c")
-customgraph.addEdge("c", "e")
-customgraph.addEdge("e", "h")
-customgraph.addEdge("e", "f")
-customgraph.addEdge("f", "g")
-customgraph.addEdge("b", "d")
-customgraph.addEdge("b", "c")
-customgraph.addEdge("d", "f")
-
-customgraph.topologicalSort()
 
 #############   Time & Space Complexity Table: Topological Sort Algorithm   #############
 

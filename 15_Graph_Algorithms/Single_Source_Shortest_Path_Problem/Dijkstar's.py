@@ -44,3 +44,8 @@ def dijkstra(graph, initial):
     
     return visited, path
 
+
+#############   Time & Space Complexity Table: Dijkstra’s Algorithm For Single Source Shortest Path Problem (SSSPP)  #############
+
+# Time Complexity :  O((V+E)log V)
+# Space Complexity : O(E)
