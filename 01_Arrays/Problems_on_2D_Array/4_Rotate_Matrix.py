@@ -17,7 +17,7 @@ print(result)
 # Space Complexity : O(N^2)
 
 
-######### Method 1: Optimal Code #########
+######### Method 2: Optimal Code #########
 def PrintMatrix(matrix, r, c):
     for i in range(r):
         for j in range(c):
