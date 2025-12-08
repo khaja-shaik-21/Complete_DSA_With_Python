@@ -1,5 +1,20 @@
 import numpy as np
 
+
+# Create a 2D Array with 0 values, taking the rows and columns as input
+rows = int(input("Enter the no.of rows of 2D Array:"))
+cols = int(input("Enter the no.of columns of 2D Array:"))
+
+twoDarr = np.array([[0 for _ in range(cols)] for _ in range(rows)], dtype=int)
+print(twoDarr)
+print(type(twoDarr))
+    
+""" 
+[[0 0 0]
+ [0 0 0]
+ [0 0 0]]
+"""
+
 # Create 2D Array
 Array = np.array([[1, 2, 3, 4],
                   [5, 6, 7, 8],
