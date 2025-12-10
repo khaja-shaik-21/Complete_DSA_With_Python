@@ -19,32 +19,35 @@ class BinaryTree:
                 return f'Found at index {i}'
         return 'Not Found'
 
-    def preOrder(self, index):
+    # DFS in Binary Trees :
+    def preOrder(self, index):              # Root - Left - Right
         if index > self.lastUsedIndex:
             return
         print(self.customList[index], end=" ")
         self.preOrder(index * 2)
         self.preOrder(index * 2 + 1)
 
-    def inOrder(self, index):
+    def inOrder(self, index):              # Left - Root - Right
         if index > self.lastUsedIndex:
             return
         self.inOrder(index * 2)
         print(self.customList[index], end=" ")
         self.inOrder(index * 2 + 1)
 
-    def postOrder(self, index):
+    def postOrder(self, index):              # Left - Right - Root
         if index > self.lastUsedIndex:
             return
         self.postOrder(index * 2)
         self.postOrder(index * 2 + 1)
         print(self.customList[index], end=" ")
-
+    
+    # BFS in Binary Trees
     def levelOrder(self):
         for i in range(1, self.lastUsedIndex + 1):
             print(self.customList[i], end=" ")
         print()
 
+    
     def deleteNode(self, value):
         if self.lastUsedIndex == 0:
             return "Binary Tree is empty"
