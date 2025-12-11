@@ -25,6 +25,32 @@ else:
     print(f" Value at index: {result}")
 
 
+
+# Binary Search Using Recursion
+def bs(nums, low, high):
+    if low > high:
+        return -1
+    
+    mid = (low+high) // 2
+    if nums[mid] == target:
+        return mid
+    elif nums[mid] < target:
+        return bs(nums, mid+1, high)
+    else:
+        return bs(nums, low, mid-1)
+    
+
+arr = [10, 20, 30, 40, 50]
+target = int(input("Enter Value to Search: "))
+low = 0
+high = len(arr) - 1
+result = bs(nums, low, high)
+if result == -1:
+    print("Value Not Found")
+else:
+    print(f" Value at index: {result}")
+    
+
 #############   Time & Space Complexity Table: Binary Search Algorithm  ############
 
 # | Scenario         | Time Complexity | Space Complexity | Explanation                                              |

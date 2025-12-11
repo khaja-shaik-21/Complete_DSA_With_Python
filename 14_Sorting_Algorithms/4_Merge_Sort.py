@@ -1,5 +1,5 @@
 # Merge Sort Algorithm
-
+# Type 1
 def mergeSort(arr):
     if len(arr) > 1:
         mid = len(arr) // 2
@@ -33,6 +33,48 @@ def mergeSort(arr):
             k += 1
     return arr
 
+Data = [3, 2, 8, 1, 5]
+
+print(f"Before Sorting : {Data}")
+print(f"After Sorting : {mergeSort(Data)}")
+
+
+# Merge Sort Algorithm
+# Type 2
+def merge_arr(left, right):
+    result = []
+    i, j = 0, 0
+    n, m = len(left), len(right)
+    
+    while i < n and j < m:
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    if i >= n:
+        while j<m:
+            result.append(right[j])
+            j += 1
+    if j >= m:
+        while i<n:
+            result.append(left[i])
+            i += 1
+    return result
+
+def merge_sort(arr):
+    n = len(arr)
+    if n <= 1:
+        return arr
+    mid = arr // 2
+    L = arr[:mid]
+    R = arr[mid:]   
+
+    left = merge_sort(L, R)
+    right = merge_sort(L, R)
+    return merge_arr(left, right)
+    
 Data = [3, 2, 8, 1, 5]
 
 print(f"Before Sorting : {Data}")

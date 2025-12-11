@@ -4,7 +4,7 @@ def insertionSort(CustomList):
     for i in range(1, len(CustomList)):
         key = CustomList[i]
         j = i - 1
-        while j >= 0 and key < CustomList[j]:
+        while j >= 0 and key < CustomList[j]:   # key > CustomList[j] for Descending Order
             CustomList[j+1] = CustomList[j]
             j -= 1
         CustomList[j+1] = key

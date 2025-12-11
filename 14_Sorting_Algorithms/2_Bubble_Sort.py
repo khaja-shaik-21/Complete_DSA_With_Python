@@ -14,6 +14,25 @@ print(f"Before Sorting : {Data}")
 print(f"After Sorting : {bubbleSort(Data)}")
 
 
+# Bubble Sort Algorithm for Sorted Array - Best Case Time Complexity
+def bubbleSort(CustomList):
+    for i in range(len(CustomList) - 1):
+        is_swap = False
+        for j in range(len(CustomList)-i-1):
+            if CustomList[j] > CustomList[j+1]:
+                CustomList[j], CustomList[j+1] = CustomList[j+1], CustomList[j]
+                is_swap = True
+        if is_swap:
+            return CustomList
+    return CustomList
+    
+    
+Data = [1, 2, 3, 4, 5]
+
+print(f"Before Sorting : {Data}")
+print(f"After Sorting : {bubbleSort(Data)}")
+
+
 #############   Time & Space Complexity Table: Bubble Sort Algorithm  ############
 
 # | Case         | Time Complexity | Space Complexity | Notes                                                           |
