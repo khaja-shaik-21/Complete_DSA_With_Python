@@ -2,9 +2,6 @@
 Finding the Largets value in List / Array
 """
 
-
-
-
 ######### Method 1: #########
 
 nums = [2, 10, 5, 11]
