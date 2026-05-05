@@ -1,8 +1,10 @@
-import numpy as np
 
-# Create an empty NumPy integer array
-my_array = np.array([], dtype=int)
+# Create an empty list to represent a one-dimensional array
 
+import ast  # For safely evaluating user input for different data types
+
+
+my_array = []
 
 # Function to display the array
 def display_array():
@@ -11,93 +13,67 @@ def display_array():
 
 # Function to insert an element
 def insert_element(index, value):
-    global my_array
-
     if index < 0:
         print("Invalid index. Cannot be negative.")
-
     else:
-        # If index is greater than array size, append at end
         if index > len(my_array):
             print("Index out of bounds. Appending at the end.")
-
-            my_array = np.insert(my_array, len(my_array), value)
-
+            my_array.append(value)
             if len(my_array) == 1:
-                print(f"Inserted {value} at index 0")
+                print(f"Inserted {value} at index 0 ")
             else:
                 print(f"Inserted {value} at index {len(my_array) - 1}")
-
         else:
-            my_array = np.insert(my_array, index, value)
-            print(f"Inserted {value} at index {index}")
-
+            my_array.insert(index, value)
+            print(f"Inserted {value} at index {index}") 
 
 # Function to traverse the array
 def traverse_array():
-    if len(my_array) == 0:
-        print("Array is empty.")
-        return
-
     print("Traversing array:")
-
     for element in my_array:
         print(element, end=' ')
-
     print()
-
 
 # Function to access an element by index
 def access_element(index):
-
     if len(my_array) == 0:
         print("The array is empty. No elements to access.")
         return
 
     try:
         print(f"Value at index {index}: {my_array[index]}")
-
     except IndexError:
         print("Index out of range.")
 
-
 # Function to search for an element
 def search_element(value):
-
     for i in range(len(my_array)):
-
         if my_array[i] == value:
             print(f"Element {value} found at index {i}")
             return
-
     print(f"Element {value} not found.")
-
 
 # Function to remove an element
 def remove_element(value):
-    global my_array
-
-    index = np.where(my_array == value)[0]
-
-    if len(index) > 0:
-
-        my_array = np.delete(my_array, index[0])
-
+    try:
+        my_array.remove(value)
         print(f"Element {value} removed.")
-
-    else:
+    except ValueError:
         print(f"Element {value} not found in the array.")
 
+# Menu driven interface
+import ast
 
-# Menu-driven interface
+import ast
+
 def menu():
     while True:
-        print("\nMENU")
+        print("\nMenu:")
         print("1. Display Array")
         print("2. Insert Element")
         print("3. Traverse Array")
         print("4. Access Element by Index")
-        print("5. Search for an Element")
+        print("5. Search for Element")
         print("6. Remove Element")
         print("7. Exit")
 
@@ -113,7 +89,7 @@ def menu():
             while True:
                 try:
                     index = int(
-                        input("Enter index to insert at: ")
+                        input("Enter index to insert: ")
                     )
                     break
 
@@ -122,17 +98,18 @@ def menu():
                         "Invalid input! Please enter an integer index."
                     )
 
-            # Loop until valid integer value is entered
+            # Loop until valid value is entered
             while True:
                 try:
-                    value = int(
+                    value = ast.literal_eval(
                         input("Enter value to insert: ")
                     )
+
                     break
 
-                except ValueError:
+                except (ValueError, SyntaxError):
                     print(
-                        "Invalid input! Please enter a valid integer value."
+                        "Invalid value! Please enter a valid datatype."
                     )
             insert_element(index, value)
 
@@ -152,65 +129,61 @@ def menu():
 
                 except ValueError:
                     print(
-                        "Invalid input! Please enter a valid integer index."
+                        "Invalid input! Please enter an integer index."
                     )
 
         # Search Element
         elif choice == '5':
             while True:
                 try:
-                    value = int(
+                    value = ast.literal_eval(
                         input("Enter value to search: ")
                     )
                     search_element(value)
                     break
 
-                except ValueError:
+                except (ValueError, SyntaxError):
                     print(
-                        "Invalid input! Please enter a valid integer value."
+                        "Invalid value! Please enter a valid datatype."
                     )
 
         # Remove Element
         elif choice == '6':
             while True:
                 try:
-                    value = int(
+                    value = ast.literal_eval(
                         input("Enter value to remove: ")
                     )
                     remove_element(value)
                     break
 
-                except ValueError:
+                except (ValueError, SyntaxError):
                     print(
-                        "Invalid input! Please enter a valid integer value."
+                        "Invalid value! Please enter a valid datatype."
                     )
 
-        # Exit
+        # Exit Program
         elif choice == '7':
-            print("Exiting program. Goodbye!")
+            print("Exiting the program.")
             break
 
-        # Invalid Choice
+        # Invalid Menu Choice
         else:
             print(
-                "Invalid choice. Please select a valid option."
+                "Invalid choice. Please enter a number between 1 and 7."
             )
 
-
-# Main Function
 if __name__ == "__main__":
     menu()
 
+############# Time & Space Complexity Table: 1D Array using Python List ############
 
-
-############# Time & Space Complexity Table: NumPy 1D Array Operations ############
-
-# | Method             | Time Complexity | Space Complexity | Notes                                                            |
-# | ------------------ | --------------- | ---------------- | ---------------------------------------------------------------- |
-# | insert_element()   | O(n)            | O(n)             | NumPy creates a new array during insertion                       |
-# | access_element()   | O(1)            | O(1)             | Direct indexing                                                  |
-# | search_element()   | O(n)            | O(1)             | Linear search                                                    |
-# | remove_element()   | O(n)            | O(n)             | np.delete() creates a new array after deletion                   |
-# | traverse_array()  | O(n)            | O(1)             | Visits each element once                                         |
-# | display_array()   | O(n)            | O(1)             | Prints all elements                                              |
-# | menu()            | O(1) per op     | O(1)             | Menu logic is constant                                           |
+# | Method             | Time Complexity | Space Complexity | Notes                                                      |
+# | ------------------ | --------------- | ---------------- | ---------------------------------------------------------- |
+# |  insert_element()  | O(n)            | O(1)             | Worst case: shift elements to insert at given index        |
+# |  access_element()  | O(1)            | O(1)             | Direct indexing (supports negative index with validation)  |
+# |  search_element()  | O(n)            | O(1)             | Linear search; worst case is element not present           |
+# |  remove_element()  | O(n)            | O(1)             | Searches + shifts all elements after the removed one       |
+# |  traverse_array()  | O(n)            | O(1)             | Iterates over each element once                            |
+# |  display_array()   | O(n)            | O(1)             | Prints all elements; linear pass                           |
+# |  menu()            | O(1) per op     | O(1)             | Menu logic constant, user input based                      |

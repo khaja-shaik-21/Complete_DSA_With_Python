@@ -76,42 +76,100 @@ def menu():
         print("6. Remove Element")
         print("7. Exit")
 
-        choice = input("Enter your choice (1-8): ")
+        choice = input("Enter your choice (1-7): ")
 
+        # Display Array
         if choice == '1':
             display_array()
+
+        # Insert Element
         elif choice == '2':
-            try:
-                index = int(input("Enter index to insert at: "))
-                value = int(input("Enter value to insert: "))
-                insert_element(index, value)
-            except ValueError:
-                print("Please enter valid integer values.")
+            # Loop until valid index is entered
+            while True:
+                try:
+                    index = int(
+                        input("Enter index to insert at: ")
+                    )
+                    break
+
+                except ValueError:
+                    print(
+                        "Invalid input! Please enter an integer index."
+                    )
+
+            # Loop until valid integer value is entered
+            while True:
+                try:
+                    value = int(
+                        input("Enter value to insert: ")
+                    )
+                    break
+
+                except ValueError:
+                    print(
+                        "Invalid input! Please enter a valid integer value."
+                    )
+            insert_element(index, value)
+
+        # Traverse Array
         elif choice == '3':
             traverse_array()
+
+        # Access Element
         elif choice == '4':
-            try:
-                index = int(input("Enter index to access: "))
-                access_element(index)
-            except ValueError:
-                print("Please enter a valid integer index.")
+            while True:
+                try:
+                    index = int(
+                        input("Enter index to access: ")
+                    )
+                    access_element(index)
+                    break
+
+                except ValueError:
+                    print(
+                        "Invalid input! Please enter a valid integer index."
+                    )
+
+        # Search Element
         elif choice == '5':
-            try:
-                value = int(input("Enter value to search: "))
-                search_element(value)
-            except ValueError:
-                print("Please enter a valid integer value.")
+            while True:
+                try:
+                    value = int(
+                        input("Enter value to search: ")
+                    )
+                    search_element(value)
+                    break
+
+                except ValueError:
+                    print(
+                        "Invalid input! Please enter a valid integer value."
+                    )
+
+        # Remove Element
         elif choice == '6':
-            try:
-                value = int(input("Enter value to remove: "))
-                remove_element(value)
-            except ValueError:
-                print("Please enter a valid integer value.")
+            while True:
+                try:
+                    value = int(
+                        input("Enter value to remove: ")
+                    )
+                    remove_element(value)
+                    break
+
+                except ValueError:
+                    print(
+                        "Invalid input! Please enter a valid integer value."
+                    )
+
+        # Exit Program
         elif choice == '7':
             print("Exiting program. Goodbye!")
             break
+
+        # Invalid Choice
         else:
-            print("Invalid choice. Please select a valid option.")
+            print(
+                "Invalid choice. Please select a valid option."
+            )
 
 if __name__ == "__main__":
     menu()

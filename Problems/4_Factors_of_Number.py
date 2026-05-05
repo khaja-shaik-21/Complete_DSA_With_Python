@@ -45,5 +45,5 @@ result.sort()       # O(NlogN)
 
 print(result)
 
-# Time Complexity = O(√N) + O(NlogN)
+# Time Complexity = O(√N) + O(NlogN) = O(NlogN)
 # Space Complexity = O(K) K = no.of factors

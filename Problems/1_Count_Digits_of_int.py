@@ -11,6 +11,8 @@ while num > 0:
     num //= 10
 print(count)
 
+# Time complexity: O(log n) where n is the input number
+# Space complexity: O(1)
 
 ###### Method 2: Pythanic way ######
 import math

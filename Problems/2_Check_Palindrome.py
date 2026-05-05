@@ -7,7 +7,9 @@ integer : 1234 == 4321
 string : "MOM" == "MOM"
 """
 
-# Number Palindrome
+""" 
+Number Palindrome
+"""
 n = 121
 print("Number:", n)
 
@@ -25,8 +27,13 @@ if n == result:
 else:
     print("Not a Palindrome")
 
-# String Palindrome
+# Time complexity: O(log n) where n is the input number
+# Space complexity: O(1)
 
+
+"""
+String Palindrome
+"""
 def reverse(s, left, right):
     while left < right:
         if s[left] != s[right]:
@@ -40,3 +47,6 @@ left = 0
 right = n - 1
 print("String:",s)
 print(reverse(s, left, right))    
+
+# Time complexity: O(n) where n is the length of the input string
+# Space complexity: O(1)
