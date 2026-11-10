@@ -25,6 +25,10 @@ def insert_element(index, value):
             my_array.insert(index, value)
             print(f"Inserted {value} at index {index}")
 
+# Function to insert element at the End
+def insert_element_at_end(value):
+    my_array.append(value)
+    print(f"Inserted {value} at the end of the array")
 
 # Function to traverse the array
 def traverse_array():
@@ -70,13 +74,14 @@ def menu():
         print("\nMENU")
         print("1. Display Array")
         print("2. Insert Element")
-        print("3. Traverse Array")
-        print("4. Access Element by Index")
-        print("5. Search for an Element")
-        print("6. Remove Element")
-        print("7. Exit")
+        print("3. Insert Element at End")
+        print("4. Traverse Array")
+        print("5. Access Element by Index")
+        print("6. Search for an Element")
+        print("7. Remove Element")
+        print("8. Exit")
 
-        choice = input("Enter your choice (1-7): ")
+        choice = input("Enter your choice (1-8): ")
 
         # Display Array
         if choice == '1':
@@ -111,12 +116,25 @@ def menu():
                     )
             insert_element(index, value)
 
-        # Traverse Array
+        # Insert Element at End
         elif choice == '3':
+            while True:
+                try:
+                    value = int(input("Enter value to insert at end: "))
+                    break
+
+                except ValueError:
+                    print(
+                        "Invalid input! Please enter a valid integer value."
+                    )
+            insert_element_at_end(value)
+        
+        # Traverse Array
+        elif choice == '4':
             traverse_array()
 
         # Access Element
-        elif choice == '4':
+        elif choice == '5':
             while True:
                 try:
                     index = int(
@@ -131,7 +149,7 @@ def menu():
                     )
 
         # Search Element
-        elif choice == '5':
+        elif choice == '6':
             while True:
                 try:
                     value = int(
@@ -146,7 +164,7 @@ def menu():
                     )
 
         # Remove Element
-        elif choice == '6':
+        elif choice == '7':
             while True:
                 try:
                     value = int(
@@ -161,7 +179,7 @@ def menu():
                     )
 
         # Exit Program
-        elif choice == '7':
+        elif choice == '8':
             print("Exiting program. Goodbye!")
             break
 
@@ -181,6 +199,7 @@ if __name__ == "__main__":
 # | ------------------ | --------------- | ---------------- | ---------------------------------------------------------- |
 # |  insert_element()  | O(n)            | O(1)             | Worst case: shift elements to insert at given index        |
 # |  access_element()  | O(1)            | O(1)             | Direct indexing (supports negative index with validation)  |
+# |  insert_element_end() | O(1)         | O(1)             | Insert at the end; no shifting required                    |
 # |  search_element()  | O(n)            | O(1)             | Linear search; worst case is element not present           |
 # |  remove_element()  | O(n)            | O(1)             | Searches + shifts all elements after the removed one       |
 # |  traverse_array()  | O(n)            | O(1)             | Iterates over each element once                            |
