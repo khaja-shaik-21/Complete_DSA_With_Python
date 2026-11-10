@@ -35,4 +35,15 @@ for i in n:
 print(hash_table)
 
 # Time complexity: O(n) 
-# Space complexity: O(k) 
+# Space complexity: O(k)
+
+
+###### String Method ######
+ 
+string = 'khaja'
+freq = {}
+for char in string:
+    freq[char] = freq.get(char, 0) + 1
+print(freq)
+# Time complexity: O(n)
+# Space complexity: O(k)
